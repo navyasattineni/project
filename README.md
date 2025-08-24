@@ -153,18 +153,18 @@ mean-crud-docker-cicd/
     ├── docker-compose.yml      
     ├── README.md                
     └── screenshots/             
-	├── 1-compose-file.png              
-	├── 2-Dockerfiles.png              
-	├── 3-nginx-conf.png                
-	├── 4-dockerhub-images.png        
-	├── 5-docker-ps.png               
-	├── 6-github-actions-run.png               
-	├── 7-github-secrets.png                   
-	├── 8-ci-cd-yml.png                         
-	├── 9-frontend-build.png                     
-	├── 10-backend-build.png                    
-	├── 11-mongod-status-version.png       
-	└── 12-app-browser.png           
+		├── 1-compose-file.png              
+		├── 2-Dockerfiles.png              
+		├── 3-nginx-conf.png                
+		├── 4-dockerhub-images.png        
+		├── 5-docker-ps.png               
+		├── 6-github-actions-run.png               
+		├── 7-github-secrets.png                   
+		├── 8-ci-cd-yml.png                         
+		├── 9-frontend-build.png                     
+		├── 10-backend-build.png                    
+		├── 11-mongod-status-version.png       
+		└── 12-app-browser.png           
 ```
 
 ## 📸 Screenshots
