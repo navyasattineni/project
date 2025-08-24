@@ -18,7 +18,7 @@ git commit -m "Initial commit"
 git push origin main
 ```
 
-##🐳 Containerization & Deployment  
+## 🐳 Containerization & Deployment  
 
 ### Frontend & Backend Dockerfiles  
 
@@ -40,13 +40,13 @@ git push origin main
 docker-compose build
 ```
 
-###Push Docker images to Docker Hub
+### Push Docker images to Docker Hub
 ```bash
 
 docker login
 docker-compose push
 ```
-###Set up Ubuntu VM (EC2)
+### Set up Ubuntu VM (EC2)
 
 1. Launch an Ubuntu EC2 instance on AWS.
 
@@ -55,24 +55,24 @@ using EC2 Instance Connect from the AWS Console (browser terminal),
 
 Or via SSH from your local machine:
 
-###Install Docker & Compose on VM
+### Install Docker & Compose on VM
 ```bash
 sudo apt update
 sudo apt install -y docker.io docker-compose
 ```
-###Clone the repo on server:
+### Clone the repo on server:
 ```bash
 git clone https://github.com/navyasattineni/mean-crud-docker-cicd.git
 cd mean-crud-docker-cicd
 ```
-###Deploy with Docker Compose:
+### Deploy with Docker Compose:
 ```bash
 docker-compose pull
 docker-compose up -d
 
 ````
 
-##🗄️ Database Setup
+## 🗄️ Database Setup
 
 We used official MongoDB Docker image (via Docker Compose):
 ```ymal
@@ -83,7 +83,7 @@ mongo:
 ```
 
 
-##🐳 Docker Compose Setup
+## 🐳 Docker Compose Setup
 The `docker-compose.yml` file (at the root of this repo) defines the stack:
 
 - **mongo** → official `mongo:6` image, data stored in a Docker volume  
@@ -107,7 +107,7 @@ The `docker-compose.yml` file (at the root of this repo) defines the stack:
 
 
 
-##🔄 CI/CD Pipeline (GitHub Actions)
+## 🔄 CI/CD Pipeline (GitHub Actions)
 
 Configured `.github/workflows/ci-cd.yml`.
 
@@ -116,12 +116,13 @@ On each push to **main**:
 - Builds frontend & backend Docker images  
 - Pushes images to Docker Hub  
 - On EC2 (self-hosted runner) runs:
-  ```bash
+```bash
   docker-compose pull
   docker-compose down
   docker-compose up -d --pull always
 ```
-##🌐 Nginx Reverse Proxy
+
+## 🌐 Nginx Reverse Proxy
 
 Nginx serves Angular build files and proxies API calls to backend:
 
