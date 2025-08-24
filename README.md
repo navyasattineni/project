@@ -170,8 +170,7 @@ mean-crud-docker-cicd/
 		├── frontend-build.png                     
 		├── backend-build.png                    
 		├── mongod-status-version.png        
-		├── app-browser.png
-		└── app-browser-2.png      
+		└── app-browser.png      
 ```
 
 ## 📸 Screenshots
@@ -194,4 +193,4 @@ Here are the required screenshots for verification:
 - ![backend-build](screenshots/backend-build.png)
 - ![mongo-status](screenshots/mongod-status-version.png)
 - ![app-browser](screenshots/app-browser.png)
-- ![app-browser](screenshots/app-browser-2.png)
+
