@@ -178,19 +178,35 @@ mean-crud-docker-cicd/
 Here are the required screenshots for verification:
 
 ### 1. Docker & Compose Setup
-- ![docker-compose](screenshots/compose-file.png)
-- ![dockerfiles](screenshots/Dockerfiles.png)
-- ![nginx-conf](screenshots/nginx-conf.png)
-- ![dockerhub-images](screenshots/dockerhub-images.png)
-- ![docker-ps](screenshots/docker-ps.png)
+  ![docker-compose](screenshots/compose-file.png)
+ 
+- dockerfiles
+  ![dockerfiles](screenshots/Dockerfiles.png)
+
+- nginx-conf
+  ![nginx-conf](screenshots/nginx-conf.png)
+
+- dockerhub-images
+  ![dockerhub-images](screenshots/dockerhub-images.png)
+
+- docker-ps
+  ![docker-ps](screenshots/docker-ps.png)
 
 ### 2. CI/CD Pipeline
-- ![github-secrets](screenshots/github-secrets.png)
-- ![ci-cd-yml](screenshots/ci-cd-yml.png)
+  ![github-secrets](screenshots/github-secrets.png)
+
+- ci-cd-yml
+  ![ci-cd-yml](screenshots/ci-cd-yml.png)
   
 ### 3. Build & Deployment
-- ![frontend-build](screenshots/frontend-build.png)
-- ![backend-build](screenshots/backend-build.png)
-- ![mongo-status](screenshots/mongod-status-version.png)
-- ![app-browser](screenshots/app-browser.png)
+  ![frontend-build](screenshots/frontend-build.png)
+
+- backend-build
+ ![backend-build](screenshots/backend-build.png)
+
+- mongo-status-version
+ ![mongo-status](screenshots/mongod-status-version.png)
+
+- app-browser
+ ![app-browser](screenshots/app-browser.png)
 
