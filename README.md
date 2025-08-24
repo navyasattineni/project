@@ -130,3 +130,58 @@ Entire application available at:
 ```cpp
 http://<EC2_PUBLIC_IP>/
 ```
+
+## 📂 Project Structure
+
+```bash
+mean-crud-docker-cicd/
+└── crud-dd-task-mean-app/
+    ├── .github/
+    │   └── workflows/
+    │       └── ci-cd.yml       
+    │
+    ├── backend/
+    │   └── Dockerfile          
+    │
+    ├── frontend/
+    │   ├── Dockerfile           
+    │   └── nginx.conf           
+    │
+    ├── docker-compose.yml      
+    ├── README.md                
+    └── screenshots/             
+	├── 1-compose-file.png              
+	├── 2-Dockerfiles.png              
+	├── 3-nginx-conf.png                
+        ├── 4-dockerhub-images.png        
+        ├── 5-docker-ps.png               
+	├── 6-github-actions-run.png               
+	├── 7-github-secrets.png                   
+	├── 8-ci-cd-yml.png                         
+	├── 9-frontend-build.png                     
+	├── 10-backend-build.png                    
+	├── 11-mongod status and version.png        
+	└── 12-app-browser.png           
+```
+
+## 📸 Screenshots
+
+Here are the required screenshots for verification:
+
+### 1. Docker & Compose Setup
+- ![docker-compose](screenshots/1-compose-file.png)
+- ![dockerfiles](screenshots/2-Dockerfiles.png)
+- ![nginx-conf](screenshots/3-nginx-conf.png)
+- ![dockerhub-images](screenshots/4-dockerhub-images.png)
+- ![docker-ps](screenshots/5-docker-ps.png)
+
+### 2. CI/CD Pipeline
+- ![github-secrets](screenshots/6-github-secrets.png)
+- ![ci-cd-yml](screenshots/7-ci-cd-yml.png)
+- ![github-actions-run](screenshots/8-github-actions-run.png)
+
+### 3. Build & Deployment
+- ![frontend-build](screenshots/9-frontend-build.png)
+- ![backend-build](screenshots/10-backend-build.png)
+- ![mongo-status](screenshots/11-mongod-status-version.png)
+- ![app-browser](screenshots/12-app-browser.png)
