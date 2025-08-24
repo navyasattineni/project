@@ -14,6 +14,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    image: navyasattineni/project_backend:latest
     container_name: backend
     restart: unless-stopped
     environment:
@@ -29,6 +30,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    image: navyasattineni/project_frontend:latest
     container_name: frontend
     restart: unless-stopped
     depends_on:
