@@ -6,19 +6,19 @@ This project is a full-stack **MEAN application** (MongoDB, Express, Angular, No
 
 ---
 
-## 📂 Repository Setup
+## 1. Repository Setup
 
 Create a new GitHub repository and push the project code:
 
 ```bash
 git init
-git remote add origin https://github.com/navyasattineni/mean-crud-docker-cicd.git
+git remote add origin https://github.com/navyasattineni/project.git
 git add .
 git commit -m "Initial commit"
 git push origin main
 ```
 
-## 🐳 Containerization & Deployment  
+## 2. Containerization & Deployment  
 
 ### Frontend & Backend Dockerfiles  
 
@@ -62,8 +62,7 @@ sudo apt install -y docker.io docker-compose
 ```
 ### Clone the repo on server:
 ```bash
-git clone https://github.com/navyasattineni/mean-crud-docker-cicd.git
-cd mean-crud-docker-cicd
+git clone https://github.com/navyasattineni/project.git
 ```
 ### Deploy with Docker Compose:
 ```bash
@@ -71,18 +70,15 @@ docker-compose pull
 docker-compose up -d
 ```
 
-## 🗄️ Database Setup
-
-We used official MongoDB Docker image (via Docker Compose):
-```yaml
-mongo:
-  image: mongo:6
-  volumes:
-    - mongo_data:/data/db
+## 3. Database Setup
+- Used official MongoDB Docker image via Docker Compose
+- Data persisted with Docker volume
+Command:
+``bash
+docker run -d --name mongo -p 27017:27017 mongo:6
 ```
 
-
-## 🐳 Docker Compose Setup
+## 4. Docker Compose Setup
 The `docker-compose.yml` file (at the root of this repo) defines the stack:
 
 - **mongo** → official `mongo:6` image, data stored in a Docker volume  
@@ -94,6 +90,7 @@ The `docker-compose.yml` file (at the root of this repo) defines the stack:
   ```bash
   docker-compose build
   docker-compose up -d
+  docker-compose ps
   ```
 Stop services:
 ```bash
@@ -109,32 +106,43 @@ Check running containers:
 docker-compose ps
 ```
 
+## 5. CI/CD Pipeline (GitHub Actions)
 
-## 🔄 CI/CD Pipeline (GitHub Actions)
+- Created workflow .github/workflows/ci-cd.yml.
+- Configured GitHub Secrets:
+	- DOCKERHUB_USERNAME
+	- DOCKERHUB_TOKEN
 
-Configured `.github/workflows/ci-cd.yml`.
+Workflow tasks:
+- Checkout repo
+- Login to Docker Hub
+- Build & push images
+- Deploy on EC2 self-hosted runner
 
-On each push to **main**:
-
-- Builds frontend & backend Docker images  
-- Pushes images to Docker Hub  
-- On EC2 (self-hosted runner) runs:
+Manual run on EC2 (if needed):
 ```bash
-  docker-compose pull
-  docker-compose down
-  docker-compose up -d --pull always
+docker-compose pull
+docker-compose up -d --force-recreate
 ```
 
-## 🌐 Nginx Reverse Proxy
+## 6. Nginx Reverse Proxy (Inside Frontend Container)
 
-Nginx serves Angular build files and proxies API calls to backend:
+Nginx serves Angular build on `/`.
 
-Entire application available at:
+Proxies API calls `/api/` → `backend:8080`.
+
+Config file: `frontend/nginx.conf`.
+
+### Useful checks
+- See containers and port mapping:
+  ```bash
+  docker-compose ps
+  ```
+- Reload nginx after editing config (container name: frontend):
 ```bash
-http://<EC2_PUBLIC_IP>/
+  docker exec -it frontend nginx -s reload
 ```
-
-## 📂 Project Structure
+## 7. Project Structure
 
 ```bash
 mean-crud-docker-cicd/
@@ -153,18 +161,18 @@ mean-crud-docker-cicd/
     ├── docker-compose.yml      
     ├── README.md                
     └── screenshots/             
-		├── 1-compose-file.png              
-		├── 2-Dockerfiles.png              
-		├── 3-nginx-conf.png                
-		├── 4-dockerhub-images.png        
-		├── 5-docker-ps.png               
-		├── 6-github-actions-run.png               
-		├── 7-github-secrets.png                   
-		├── 8-ci-cd-yml.png                         
-		├── 9-frontend-build.png                     
-		├── 10-backend-build.png                    
-		├── 11-mongod-status-version.png       
-		└── 12-app-browser.png           
+		├── compose-file.png              
+		├── Dockerfiles.png              
+		├── nginx-conf.png                
+		├── dockerhub-images.png        
+		├── docker-ps.png                            
+		├── github-secrets.png                   
+		├── ci-cd-yml-1.png
+		├── ci-cd-yml-2.png                        
+		├── frontend-build.png                     
+		├── backend-build.png                    
+		├── mongod-status-version.png       
+		└── app-browser.png           
 ```
 
 ## 📸 Screenshots
@@ -172,19 +180,19 @@ mean-crud-docker-cicd/
 Here are the required screenshots for verification:
 
 ### 1. Docker & Compose Setup
-- ![docker-compose](screenshots/1-compose-file.png)
-- ![dockerfiles](screenshots/2-Dockerfiles.png)
-- ![nginx-conf](screenshots/3-nginx-conf.png)
-- ![dockerhub-images](screenshots/4-dockerhub-images.png)
-- ![docker-ps](screenshots/5-docker-ps.png)
+- ![docker-compose](screenshots/compose-file.png)
+- ![dockerfiles](screenshots/Dockerfiles.png)
+- ![nginx-conf](screenshots/nginx-conf.png)
+- ![dockerhub-images](screenshots/dockerhub-images.png)
+- ![docker-ps](screenshots/docker-ps.png)
 
 ### 2. CI/CD Pipeline
-- ![github-secrets](screenshots/6-github-secrets.png)
-- ![ci-cd-yml](screenshots/7-ci-cd-yml.png)
-- ![github-actions-run](screenshots/8-github-actions-run.png)
-
+- ![github-secrets](screenshots/github-secrets.png)
+- ![ci-cd-yml](screenshots/ci-cd-yml-1.png)
+- ![ci-cd-yml](screenshots/ci-cd-yml-2.png)
+  
 ### 3. Build & Deployment
-- ![frontend-build](screenshots/9-frontend-build.png)
-- ![backend-build](screenshots/10-backend-build.png)
-- ![mongo-status](screenshots/11-mongod-status-version.png)
-- ![app-browser](screenshots/12-app-browser.png)
+- ![frontend-build](screenshots/frontend-build.png)
+- ![backend-build](screenshots/backend-build.png)
+- ![mongo-status](screenshots/mongod-status-version.png)
+- ![app-browser](screenshots/app-browser.png)
