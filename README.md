@@ -69,8 +69,7 @@ cd mean-crud-docker-cicd
 ```bash
 docker-compose pull
 docker-compose up -d
-
-````
+```
 
 ## 🗄️ Database Setup
 
@@ -92,19 +91,23 @@ The `docker-compose.yml` file (at the root of this repo) defines the stack:
 
 #### Commands
 - Build & run:
+  ```bash
   docker-compose build
   docker-compose up -d
-
-- Stop services:
-  docker-compose down
-
-- Pull new images (CI/CD step):
-  docker-compose pull
-  docker-compose up -d
-
-- Check running containers:
-  docker-compose ps
-
+  ```
+Stop services:
+```bash
+docker-compose down
+```
+Pull new images (CI/CD step):
+```bash
+docker-compose pull
+docker-compose up -d
+```
+Check running containers:
+```bash
+docker-compose ps
+```
 
 
 ## 🔄 CI/CD Pipeline (GitHub Actions)
