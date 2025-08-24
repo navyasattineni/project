@@ -74,10 +74,9 @@ docker-compose up -d
 - Used official MongoDB Docker image via Docker Compose
 - Data persisted with Docker volume
 Command:
-``bash
+```bash
 docker run -d --name mongo -p 27017:27017 mongo:6
 ```
-
 ## 4. Docker Compose Setup
 The `docker-compose.yml` file (at the root of this repo) defines the stack:
 
@@ -87,11 +86,11 @@ The `docker-compose.yml` file (at the root of this repo) defines the stack:
 
 #### Commands
 - Build & run:
-  ```bash
+```bash
   docker-compose build
   docker-compose up -d
   docker-compose ps
-  ```
+```
 Stop services:
 ```bash
 docker-compose down
