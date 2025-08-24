@@ -166,12 +166,12 @@ mean-crud-docker-cicd/
 		├── dockerhub-images.png        
 		├── docker-ps.png                            
 		├── github-secrets.png                   
-		├── ci-cd-yml-1.png
-		├── ci-cd-yml-2.png                        
+		├── ci-cd-yml.png                      
 		├── frontend-build.png                     
 		├── backend-build.png                    
-		├── mongod-status-version.png       
-		└── app-browser.png           
+		├── mongod-status-version.png        
+		├── app-browser.png
+		└── app-browser-2.png      
 ```
 
 ## 📸 Screenshots
@@ -187,11 +187,11 @@ Here are the required screenshots for verification:
 
 ### 2. CI/CD Pipeline
 - ![github-secrets](screenshots/github-secrets.png)
-- ![ci-cd-yml](screenshots/ci-cd-yml-1.png)
-- ![ci-cd-yml](screenshots/ci-cd-yml-2.png)
+- ![ci-cd-yml](screenshots/ci-cd-yml.png)
   
 ### 3. Build & Deployment
 - ![frontend-build](screenshots/frontend-build.png)
 - ![backend-build](screenshots/backend-build.png)
 - ![mongo-status](screenshots/mongod-status-version.png)
 - ![app-browser](screenshots/app-browser.png)
+- ![app-browser](screenshots/app-browser-2.png)
