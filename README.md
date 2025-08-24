@@ -75,7 +75,7 @@ docker-compose up -d
 ## 🗄️ Database Setup
 
 We used official MongoDB Docker image (via Docker Compose):
-```ymal
+```yaml
 mongo:
   image: mongo:6
   volumes:
@@ -127,7 +127,7 @@ On each push to **main**:
 Nginx serves Angular build files and proxies API calls to backend:
 
 Entire application available at:
-```cpp
+```bash
 http://<EC2_PUBLIC_IP>/
 ```
 
@@ -160,7 +160,7 @@ mean-crud-docker-cicd/
 	├── 8-ci-cd-yml.png                         
 	├── 9-frontend-build.png                     
 	├── 10-backend-build.png                    
-	├── 11-mongod status and version.png        
+	├── 11-mongod-status-version.png       
 	└── 12-app-browser.png           
 ```
 
