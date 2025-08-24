@@ -1,0 +1,32 @@
+name: CI/CD Pipeline (Self-Hosted Runner with Docker Compose)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted  # Targets your EC2 runner
+
+    env:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Log in to Docker Hub
+      run: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+
+    - name: Build and push Docker images
+      run: |
+        docker-compose build
+        docker-compose push
+
+    - name: Deploy with Docker Compose
+      run: |
+        docker-compose pull
+        docker-compose down
+        docker-compose up -d --pull always
