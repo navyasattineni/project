@@ -156,8 +156,8 @@ mean-crud-docker-cicd/
 	├── 1-compose-file.png              
 	├── 2-Dockerfiles.png              
 	├── 3-nginx-conf.png                
-        ├── 4-dockerhub-images.png        
-        ├── 5-docker-ps.png               
+	├── 4-dockerhub-images.png        
+	├── 5-docker-ps.png               
 	├── 6-github-actions-run.png               
 	├── 7-github-secrets.png                   
 	├── 8-ci-cd-yml.png                         
